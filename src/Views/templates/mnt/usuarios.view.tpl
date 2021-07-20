@@ -8,11 +8,11 @@
       <th>Código</th>
       <th>Correo</th>
       <th>Estado</th>
+      {{if CanInsert}}
       <th>
-        {{if CanInsert}}
         <a href="index.php?page=mnt_usuario&mode=INS&id=0">Nuevo</a>
-        {{endif CanInsert}}
       </th>
+      {{endif CanInsert}}
       </tr>
     </thead>
     <tbody>
@@ -29,6 +29,7 @@
           {{endifnot ~CanView}}
         </td>
         <td>{{userest}}</td>
+        {{if ~CanView}}
         <td>
           {{if ~CanUpdate}}
           <a href="index.php?page=mnt_usuario&mode=UPD&id={{usercod}}"
@@ -44,6 +45,7 @@
           </a>
           {{endif ~CanDelete}}
         </td>
+        {{endif ~CanView}}
       </tr>
       {{endfor Usuarios}}
     </tbody>
